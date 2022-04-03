@@ -51,7 +51,7 @@ let pizza = {
 
 //CODE HERE
 
-console.log(pizza.popularity)
+// console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -62,7 +62,7 @@ console.log(pizza.popularity)
 
 //CODE HERE
 
-console.log(pizza.tags[1])
+// console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -74,7 +74,7 @@ console.log(pizza.tags[1])
 //CODE HERE
 
 let {price} = pizza
-console.log(price)
+// console.log(price)
 
 /*
     Fourth, and last, destructure the category
@@ -86,7 +86,7 @@ console.log(price)
 //CODE HERE
 
 let {category} = pizza
-console.log(category)
+// console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -102,7 +102,7 @@ console.log(category)
 
 //CODE HERE
 
-let foodArr = [
+const foodArr = [
     {
         name: 'The Eggplant',
         price: 9,
@@ -117,7 +117,7 @@ let foodArr = [
         category: 'Salads',
         popularity: 3,
         rating: 7,
-        tags: ['Salds','Vegan','Hardy','Earthy']
+        tags: ['Salad','Vegan','Hardy','Earthy']
     },
     {
         name: 'The Mushroom StirFry',
@@ -141,11 +141,11 @@ let foodArr = [
         category: 'Main Dish',
         popularity: 2,
         rating: 10,
-        tags: ['Veggies','Stir Fry','Vegan','Earthy','Filling']
+        tags: ['Veggies','Stir Fry','Spicy','Vegan','Earthy','Filling']
     }
 ]
 
-console.log(foodArr)
+// console.log(foodArr)
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -161,11 +161,24 @@ console.log(foodArr)
 
 //CODE HERE
 
-const foodArrCallback = (tag) => this.tags.includes(tag) // not currently working
+// console.log(foodArr[2].tags.includes('Spicy')) // => true
 
-const filteredFood = foodArr.filter(foodArrCallback)
+let tagToCheck = 'Spicy'
 
-console.log(filteredFood('Earthy'))
+// const foodArrCallback = (foodItem) => {
+//     for(let i=0; i<foodItem.tags.length; i++) {
+//         if (foodItem.tags[i] === tagToCheck) {
+//             return true
+//         }
+//     }
+//     return false
+// }
+
+// const filteredTag = foodArr.filter(foodArrCallback)
+// const filteredTag2 = foodArr.filter(foodArrCallback2)
+
+// console.log(filteredTag)
+// console.log(filteredTag2)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -190,8 +203,8 @@ console.log(filteredFood('Earthy'))
     values that are above or below the given number
     for the given property
 
-    Inside the function, create a variable to hold
-    a filtered array
+    ???Inside the function, create a variable to hold
+    a filtered array??? 
 
     Use the filter method to filter the foodArr
 
@@ -199,7 +212,7 @@ console.log(filteredFood('Earthy'))
         if it is, return objects whose value for the given
         property is greater than the `number` passed in
 
-        If the type isn't `below`, return objects whose
+        If the type is `below`, return objects whose
         value for the given property is less than the 
         `number` passed in
     
@@ -209,6 +222,101 @@ console.log(filteredFood('Earthy'))
 //CODE HERE
 
 
+const filterByProperty5 = (property, number, type) => { // another way to write above foodArrCallback
+    return foodArr.filter(elem => {
+        return type === 'above' ? (elem[property] > number) : type === 'below' ? (elem[property] < number) : 'enter either "above" or "below".' 
+    })}
+
+
+const priceAbove10 = filterByProperty5('price',10,'above')
+console.log(priceAbove10)
+
+const priceBelow10 = filterByProperty5('price',10,'below')
+console.log(priceBelow10)
+
+
+
+
+
+// const filterByProperty4 = (property, number, type) => { // another way to write above foodArrCallback
+//     return foodArr.filter(elem => {
+//         return type === 'above' ? (elem[property] > number)
+//         : type === 'below' ? (elem[property] < number)
+//         : 'enter either "above" or "below".' })}
+
+// const filterByProperty3 = (property, number, type) => { // yet another way to write above foodArrCallback
+//     return foodArr.filter(elem => {
+//         if (type === 'above') {
+//             return elem[property] > number
+//         } 
+//         else if (type === 'below') {
+//             return elem[property] < number
+
+//         } 
+//     })
+// }
+
+
+
+
+
+
+
+// const filterByProperty2 = (property,number,type) => {
+//     console.log(property,number,type)
+//     return foodArr.filter(foodItem => {
+//         if (type.toLowerCase() === 'above') {
+//             if (foodItem[property] > number){ // objects whose number is above the property number
+//                 return true
+//             } else return false
+//         }
+//         if (type.toLowerCase() === 'below') {
+//             if (foodItem[property] < number) {
+//                 return true
+//             } else return false
+//         }    
+//     })
+// }
+
+// const priceAbove7 = filterByProperty2('price', 7, 'above')
+// console.log(priceAbove7)
+
+// const ratingBelow8 = filterByProperty2('rating',8,'below')
+// console.log(ratingBelow8)
+
+
+
+
+
+
+
+const filterByProperty = (property,number,type) => {
+    console.log(property,number,type)
+    return foodArr.filter(daCallback)
+}
+
+const daCallback = foodItem => {
+    if (type.toLowerCase() === 'above') {
+        if (foodItem[property] > number){ // objects whose number is above the property number
+            return true
+        } else return false
+    }
+    if (type.toLowerCase() === 'below') {
+        if (foodItem[property] < number) {
+            return true
+        } else return false
+    }    
+}
+
+const priceAbove7 = filterByProperty('price', 7, 'above')
+console.log(priceAbove7)
+
+const ratingBelow8 = filterByProperty('rating',8,'below')
+console.log(ratingBelow8)
+
+
+
+
 /*
     Invoke the `filterByProperty` function passing
     in a value for each paramter.
@@ -216,4 +324,4 @@ console.log(filteredFood('Earthy'))
     You'll have to console.log to see the filtered array
 */
 
-//CODE HERE
+//see above

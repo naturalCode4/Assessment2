@@ -68,6 +68,6 @@ console.log(firstTicket)
 
 //CODE HERE
 
-firstTicket.updateStatus('He needs those fries extra hot! STEAMING, PIPING HOT. Throw em in the boiler for 30 minutes')
+firstTicket.updateStatus('Cooking')
 
-console.log(firstTicket.status)
+// console.log(firstTicket.status)

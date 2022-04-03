@@ -75,8 +75,9 @@ Sarah.getSchedule()
   
   //Code Here
     
-const empTwo = {...Sarah}
-empTwo.name = 'Nick'
+// const empTwo = {...Sarah}
+// empTwo.name = 'Nick'
+const empTwo = {...Sarah, name: 'Nick'}
 console.log(empTwo)  
 
 
