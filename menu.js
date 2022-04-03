@@ -238,7 +238,7 @@ console.log(priceBelow10)
 
 
 
-// const filterByProperty4 = (property, number, type) => { // another way to write above foodArrCallback
+// const filterByProperty4 = (property, number, type) => { // another way to write above foodArrCallback 
 //     return foodArr.filter(elem => {
 //         return type === 'above' ? (elem[property] > number)
 //         : type === 'below' ? (elem[property] < number)
