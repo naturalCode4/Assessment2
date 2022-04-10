@@ -228,21 +228,14 @@ const filterByProperty5 = (property, number, type) => { // another way to write 
     })}
 
 
-const priceAbove10 = filterByProperty5('price',10,'above')
-console.log(priceAbove10)
-
-const priceBelow10 = filterByProperty5('price',10,'below')
-console.log(priceBelow10)
 
 
 
-
-
-// const filterByProperty4 = (property, number, type) => { // another way to write above foodArrCallback 
-//     return foodArr.filter(elem => {
-//         return type === 'above' ? (elem[property] > number)
-//         : type === 'below' ? (elem[property] < number)
-//         : 'enter either "above" or "below".' })}
+const filterByProperty4 = (property, number, type) => { // another way to write above foodArrCallback 
+    return foodArr.filter(elem => {
+        return type === 'above' ? (elem[property] > number)
+        : type === 'below' ? (elem[property] < number)
+        : 'enter either "above" or "below".' })}
 
 // const filterByProperty3 = (property, number, type) => { // yet another way to write above foodArrCallback
 //     return foodArr.filter(elem => {
@@ -262,58 +255,46 @@ console.log(priceBelow10)
 
 
 
-// const filterByProperty2 = (property,number,type) => {
+const filterByProperty2 = (property,number,type) => {
+    console.log(property,number,type)
+    return foodArr.filter(foodItem => {
+        if (type.toLowerCase() === 'above') {
+            if (foodItem[property] > number){ // objects whose number is above the property number
+                return true
+            } else return false
+        }
+        if (type.toLowerCase() === 'below') {
+            if (foodItem[property] < number) {
+                return true
+            } else return false
+        }    
+    })
+}
+
+
+
+
+
+
+
+
+// const filterByProperty = (property,number,type) => {
 //     console.log(property,number,type)
-//     return foodArr.filter(foodItem => {
-//         if (type.toLowerCase() === 'above') {
-//             if (foodItem[property] > number){ // objects whose number is above the property number
-//                 return true
-//             } else return false
-//         }
-//         if (type.toLowerCase() === 'below') {
-//             if (foodItem[property] < number) {
-//                 return true
-//             } else return false
-//         }    
-//     })
+//     return foodArr.filter(daCallback)
 // }
 
-// const priceAbove7 = filterByProperty2('price', 7, 'above')
-// console.log(priceAbove7)
-
-// const ratingBelow8 = filterByProperty2('rating',8,'below')
-// console.log(ratingBelow8)
-
-
-
-
-
-
-
-const filterByProperty = (property,number,type) => {
-    console.log(property,number,type)
-    return foodArr.filter(daCallback)
-}
-
-const daCallback = foodItem => {
-    if (type.toLowerCase() === 'above') {
-        if (foodItem[property] > number){ // objects whose number is above the property number
-            return true
-        } else return false
-    }
-    if (type.toLowerCase() === 'below') {
-        if (foodItem[property] < number) {
-            return true
-        } else return false
-    }    
-}
-
-const priceAbove7 = filterByProperty('price', 7, 'above')
-console.log(priceAbove7)
-
-const ratingBelow8 = filterByProperty('rating',8,'below')
-console.log(ratingBelow8)
-
+// const daCallback = foodItem => {
+//     if (type.toLowerCase() === 'above') {
+//         if (foodItem[property] > number){ // objects whose number is above the property number
+//             return true
+//         } else return false
+//     }
+//     if (type.toLowerCase() === 'below') {
+//         if (foodItem[property] < number) {
+//             return true
+//         } else return false
+//     }    
+// }
 
 
 
@@ -324,4 +305,16 @@ console.log(ratingBelow8)
     You'll have to console.log to see the filtered array
 */
 
-//see above
+
+const priceAbove7 = filterByProperty2('price', 7, 'above')
+console.log(priceAbove7)
+
+const ratingBelow8 = filterByProperty2('rating',8,'below')
+console.log(ratingBelow8)
+
+
+const priceAbove10 = filterByProperty5('price',10,'above')
+console.log(priceAbove10)
+
+const priceBelow10 = filterByProperty5('price',10,'below')
+console.log(priceBelow10)
